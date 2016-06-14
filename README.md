@@ -12,7 +12,14 @@ Remember to replace the path with your own path, and the "gid" parameter with yo
 See the javascript console of your screen browser see what kind of RPC calls the controller tries to make,
 and implement them in your screen code.
 
+The RPC methods you need to implement and expose in the screen are the following (in WebIDL format):
 
+```
+void setPlayerName(DOMString name, DOMString callerId);
+
+void playerMove(dictionary coordinates {float x,float y}, DOMString callerId);
+
+```
 
 You can use the Spaceify Communication Platform API in your code by adding the following
 script tag to your page:
