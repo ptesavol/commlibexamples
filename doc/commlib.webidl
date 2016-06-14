@@ -142,34 +142,114 @@ void connectAsController (ConnectionReadyCallback callback );
 /** 
  * @brief Sends a JSONRPC notification (= calls a void-returning RPC method) to all connected screens. 
  * 
- * @methodName
+ * @param methodName The name of the method to be called.
  *
- * @
+ * @param params The parameters to the method call
+ *
  */
  
 void notifyScreens( DOMString methodName, any[] params );
 
+/**
+ * @brief Sends a JSONRPC notification (= calls a void-returning RPC method) to a specific controller.
+ *
+ * @param controllerId The id of the controller to send the notification to
+ *
+ * @param methodName The name of the method to be called.
+ *
+ * @param params The parameters to the method call
+ *
+ */
+ 
 void notifyController( DOMString controllerId, DOMString methodName, any[] params );
 
-// Method for calling an RPC function with return value, will call the callback on returning
 
+/**
+ * @brief Calls an JSONRPC method with return value on a specific client (screen or controller), will call the callback on returning.
+ *
+ * @param clientId The id of the client the method of which is to be called
+ *
+ * @param methodName The name of the method to be called.
+ *
+ * @param params The parameters to the method call
+ *
+ * @param thisParam The value the "this" reference will be set to upon calling of the callback
+ *
+ * @param callback The callback to be called with the error or the return value or the RPC call
+ *
+ */
+ 
 void callClientRpc( DOMString clientId, methodName, any[] params, any thisParam, RPCMethodReturnCallback callback );
 
 
-// Method for exposing an RPC method towards all connected clients 
 
+/**
+ * @brief Exposes a method towards all connected clients as a JSONRPC method.
+ *
+ * @param methodName The name to expose the method with.
+ *
+ * @param thisParam The value the "this" reference will be set to when the exposed method is called over RPC.
+ *
+ * @param method The method to be exposed.
+ *
+ */
+ 
 void exposeRpcMethod( DOMString methodName, any thisParam, RPCMethod method );
 
 
-// Setters for listeners 
+/**
+ * @brief Sets a listener method that gets called every time a connection with a controller is established.
+ *
+ * @param thisParam The value the "this" reference will be set to upon calling of the listener method.
+ *
+ * @param method The listener method.
+ *
+ */
 
 setter void setControllerConnectionListener( any thisParam, ControllerConnectedCallback listenerFunction );
 
+
+/**
+ * @brief Sets a listener method that gets called every time a connection with a controller is lost.
+ *
+ * @param thisParam The value the "this" reference will be set to upon calling of the listener method.
+ *
+ * @param method The listener method.
+ *
+ */
+
 setter void setControllerDisconnectionListener( any thisParam, ControllerDisconnectedCallback listenerFunction );
 
+/**
+ * @brief Sets a listener method that gets called every time a connection with a screen is established.
+ *
+ * @param thisParam The value the "this" reference will be set to upon calling of the listener method.
+ *
+ * @param method The listener method.
+ *
+ */
+ 
 setter void setScreenConnectionListener( any thisParam, ScreenConnectedCallback listenerFunction );
 
+/**
+ * @brief Sets a listener method that gets called every time a connection with a screen is lost.
+ *
+ * @param thisParam The value the "this" reference will be set to upon calling of the listener method.
+ *
+ * @param method The listener method.
+ *
+ */
+ 
 setter void setScreenDisconnectionListener( any thisParam, ScreenDisconnectedCallback listenerFunction );
+
+/**
+ * @brief Sets a listener method that gets called every time the connection type with a screen changes.
+ *
+ * @param thisParam The value the "this" reference will be set to upon calling of the listener method.
+ *
+ * @param method The listener method.
+ *
+ */
 
 setter void setScreenConnectionTypeListener( any thisParam, ScreenConnectionTypeCallback listenerFunction );	
 };
