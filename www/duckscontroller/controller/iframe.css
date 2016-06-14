@@ -1,0 +1,46 @@
+
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../assets/controller/controller_bg.jpg");
+	background-size: cover;
+	/*background: #707070;*/
+}
+
+#wrapper {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#frame {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+@media screen and (orientation:portrait) {
+    #wrapper {
+    	margin-top: 40px;
+    	margin-bottom: 40px;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    #wrapper {
+		margin-top: 40px;
+		margin-bottom: 40px;
+    }
+}

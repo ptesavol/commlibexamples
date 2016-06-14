@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="libs/jquery-impromptu.min.css" />
+		<link rel="stylesheet" type="text/css" href="controller/content.css" />
+		
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+   		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"/>
+ <!--		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui"> -->
+
+		<script type="text/javascript" src="http://spaceify.net/games/g/gamelib.min.js"></script>
+
+		<!-- <script type="text/javascript" src="libs/gamelib.min.js"></script>  -->
+
+		<!-- 
+		
+		<script type="text/javascript" src="libs/gamelib/webjsonrpc/callbackbuffer.js"></script>
+		<script type="text/javascript" src="libs/gamelib/webjsonrpc/rpccommunicator.js"></script> 
+		<script type="text/javascript" src="libs/gamelib/webjsonrpc/websocketconnection.js"></script> 
+		<script type="text/javascript" src="libs/gamelib/webjsonrpc/websocketrpcconnection.js"></script>
+		
+		<script type="text/javascript" src="libs/gamelib/webjsonrpc/webrtcconnection.js"></script>
+		<script type="text/javascript" src="libs/gamelib/webrtconnector.js"></script> 
+		
+		<script type="text/javascript" src="libs/gamelib/client.js"></script> 
+		<script type="text/javascript" src="libs/gamelib/communicationclient.js"></script> 	
+		<script type="text/javascript" src="libs/gamelib/gameclient.js"></script> 	
+		<script type="text/javascript" src="libs/gamelib/hubtester.js"></script> 	
+
+		
+		 -->
+
+		<script type="text/javascript">	
+				
+		var SERVER_ADDRESS = {host: "spaceify.net", port: 1979};
+		//var SERVER_ADDRESS = {host: "192.168.56.2", port: 1979};
+		//var SERVER_ADDRESS = {host: "localhost", port: 1979};
+		var WEBRTC_CONFIG = {"iceServers":[{url:"stun:kandela.tv"},{url :"turn:kandela.tv", username:"webrtcuser", credential:"jeejeejee"}]};
+			
+				
+		</script>
+		
+
+		<title>
+			Shoot-to-Win Controller
+		</title>
+	</head>
+<body>
+	
+		<div id="connecting" class="menu">
+			<h1>trying to connect...</h1>
+		</div>
+		<div id="disconnected" class="menu">
+			<h1>connection lost</h1>
+			<div>
+				<button onclick="location.reload()">reconnect</button>
+			</div>
+		</div>
+
+		<div id="email">
+			<label form="emailtext">
+				Congratulations<br>You made a top score! Please give your email address: <br>
+				<input id="emailtext" type="email" name="emailtext" value="" placeholder="email address"></input>
+				<input id="emailbutton" type="button" value="Ok" data-theme="b"></input>
+			</label>
+		</div>
+
+		<div id="prizes">
+			<span id="close" onclick='$("#prizes").hide(); return false;'>x</span>
+			<div class="title">Tap to claim your prize</div>
+			<div class="prizescontent">
+				<div id="prizesList">
+				</div>
+			</div>
+		</div>
+
+		<div id="container">
+			<!-- <img id="bg_image" src="assets/controller/controller_bg.jpg"> -->
+			<div id="padButton">
+				<img id="padButtonImg" src="assets/controller/controller_shoot.png" class="controllerPart">
+			
+			</div>
+			<div id="padStick">
+				<img id="padStickImg" src="assets/controller/controller_move.png" class="controllerPart">
+			
+			</div>
+		</div>
+
+<!--		<div id="controllerDisplay">
+			<div id="dummy"></div>
+			<div id="content">
+				<img id="crosshairImg" src="">
+			</div>
+		</div> -->
+
+		<div id="scoreDisplay">
+			<span class="label">score:&nbsp;</span>
+			<span id="playerScore" class="value">000</span>
+		</div>
+		<div id="gameTitle">
+			<img id="padButtonImg" src="assets/controller/controller_logo.png">
+		</div>
+		<div id="playerNameDisplay">
+			<span id="playerName" class="label">player&nbsp;</span>
+		</div>
+		<div id="prizesButton" onclick='$("#prizes").show(); return false;'>
+			<span class="label">Show prizes!</span>
+		</div>
+
+</body>
+		
+		<script src="libs/jquery-2.2.1.min.js"></script>
+		<script src="libs/jquery-impromptu.min.js"></script>
+		<script src="controller/ThumbStick.js"></script>
+		<script src="controller/htmlPhone.js"></script>
+
+		
+</html>

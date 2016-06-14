@@ -1,6 +1,19 @@
 # commlibexamples
 Examples of using the Spaceify Communication Platform API
 
+The Ducks and Pirates controller is now available in the folder "www/duckscontroller".
+You can open it for development using an URL of the format:
+
+```html
+http://localhost/~ptesavol/comm/duckscontroller/controller.html?host=spaceify.net&port=1979&gid=petris_own_group
+```
+
+Remember to replace the path with your own path, and the "gid" parameter with your group id.
+See the javascript console of your screen browser see what kind of RPC calls the controller tries to make,
+and implement them in your screen code.
+
+
+
 You can use the Spaceify Communication Platform API in your code by adding the following
 script tag to your page:
 

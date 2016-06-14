@@ -1,0 +1,499 @@
+
+.jqibox input {
+    font-size: 1.8em;
+}
+
+body,html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	color: black;
+    font-family: marker_felt_wide;
+    background: none transparent;
+}
+
+@font-face {
+    font-family: marker_felt_wide;
+    src: url("../assets/controller/ufonts.com_marker-felt-wide.ttf");
+}
+
+#container {
+    z-index: 1;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	/*background: #707070;*/
+     /*background-image: url("../assets/controller/controller_bg.jpg");*/
+
+    
+}
+
+#bg_image {
+     //z-index: 2;
+    //max-width:100%;
+    //max-height:100%;
+    height: 100%;
+    width: 100%;
+}
+
+#canvas {
+    vertical-align: top;
+	display: block;
+	overflow: auto;
+    /*
+    z-index: 9;
+    background: gray;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    overflow: auto;
+    */
+}
+
+#controllerDisplay {
+    position: relative;
+    display: inline-block;
+    margin-left: 45%;
+    width: 10%;
+}
+
+#controllerDisplay .dummy {
+    padding-top: 100%;
+}
+
+#controllerDisplay .content {
+    /*background: #AAAAAA;*/
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-left: 4px ridge #404040;
+    border-right: 4px ridge #404040;
+    border-bottom: 4px ridge #404040;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#padStick, #padButton {
+    display: none;
+}
+
+#padStick {
+    /*background: blue;*/
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 50%;
+
+}
+
+#padButton {
+    /*background: yellow;*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 50%;
+}
+
+img.controllerPart {
+    padding: 0px;
+    margin: 0px;
+    /*background: green;*/
+}
+
+#padStick img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+#padButton img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+#controllerDisplay #crosshairImg {
+    margin-left: 8%;
+    margin-top: 8%;
+    width: 84%;
+    height: 84%;
+}
+
+#scoreDisplay {
+    background: #ddeeff;
+    position: absolute;
+    font-size: 150%;
+    /*font-family: fantasy;*/
+    top: 0px;
+    right: 0px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 5px ridge #ccddff;
+    border-bottom: 5px ridge #ccddff;
+    border-top: 5px ridge #ccddff;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    z-index: 5;
+}
+
+#scoreDisplay .label {
+    float: left;
+}
+
+#scoreDiaply .value {
+    float: right;
+}
+
+
+.menu {
+    z-index: 10;
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#connecting {
+    display: block;
+}
+
+.menu h1 {
+    text-align: center;
+    font-size: 300%;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.menu div {
+    text-align: center;
+}
+
+.menu button {
+    width: 50%;
+    font-size: 250%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+}
+    
+#gameTitle {
+    position: absolute;
+    top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+#gameTitle img {
+    padding-top: 0px;
+    max-width: 250px;
+}
+
+@media screen and (orientation:portrait) {
+    #gameTitle img {
+        padding-top: 80px;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    #gameTitle img {
+        padding-top: 0px;
+    }
+}
+
+
+#gameTitle span {
+    background: #8080AA;
+    padding-left: 0.7ex;
+    padding-right: 0.7ex;
+    border-left: 4px ridge #ccddff;
+    border-right: 4px ridge #ccddff;
+    border-top: 4px ridge #404060;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    //font-family: serif; 
+    font-weight: bold;
+    font-size: 2em;
+     z-index: 0;
+}
+
+#playerNameDisplay {
+    background: #ddeeff;
+    position: absolute;
+    font-size: 150%;
+    //font-family: fantasy;
+    top: 0px;
+    left: 0px;
+    padding-right: 10px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 5px ridge #ccddff;
+    border-bottom: 5px ridge #ccddff;
+    border-top: 5px ridge #ccddff;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    z-index: 5;
+}
+
+#playerNameDisplay .label {
+    float: left;
+}
+
+#email {
+
+    display: none;
+    z-index: 10;
+    
+    top: 25%;
+    left: 0px;
+    width: 400px;
+    height: 200px;
+
+    background-color: #cccccc;
+    
+    position:  absolute;;
+    text-align: center;
+   
+    font-size: 200%;
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+     border-radius:6px;
+
+     margin: auto;
+    left: 0;
+    right: 0;
+
+    text-shadow: 2px 2px 0 white;
+
+    box-shadow: 10px 10px 5px #444444;
+}
+
+#prizesButton {
+/*    font-size: 1.4em;
+    background-color: #000;
+    display: fixed;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    border: solid 2px #fff;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;*/
+
+    color: #fff;
+    background: rgba(53,62,191, 0.8);
+    position: absolute;
+    font-size: 150%;
+    /*font-family: fantasy;*/
+    bottom: 0px;
+    right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 2px solid rgb(255, 255, 255);
+    border-top: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    z-index: 5;
+}
+
+/*@media screen and (orientation:portrait) {
+    #prizesButton {
+        padding-bottom: 10px;
+    }
+    #playerNameDisplay {
+        padding-top: 10px;
+    }
+    #gameTitle {
+        padding-top: 10px;
+    }
+    #scoreDisplay {
+        padding-top: 10px;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    #prizesButton {
+        padding-bottom: 80px;
+    }
+    #playerNameDisplay {
+        padding-top: 80px;
+    }
+    #gameTitle {
+        padding-top: 80px;
+    }
+    #scoreDisplay {
+        padding-top: 80px;
+    }
+}*/
+
+#close {
+    float: right;
+    display: inline-block;
+    color: #ddd;
+    border: solid 2px #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#close:hover {
+    float: right;
+    display: inline-block;
+    color: #fff;
+    border: solid 2px #fff;
+}
+
+#prizes {
+    display: none;
+    z-index: 10;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(53,62,191, 0.95);
+    border-style: solid;
+    border-width: 4px;
+    border-top-color: rgba(155, 209, 237, 0.95);
+    border-left-color: rgba(155, 209, 237, 0.95);
+    border-bottom-color: rgba(41, 43, 162, 0.95);
+    border-right-color: rgba(41, 43, 162, 0.95);
+    width: 80%;
+    max-height: 80%;
+    padding: 25px;
+    padding-top: 15px;
+    border-radius: 10px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#prizes::-webkit-scrollbar * {
+    background: transparent;
+}
+
+#prizes::-webkit-scrollbar-track
+{
+    display: none;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+ /*   background-color: #F5F5F5;*/
+    margin-right: 15px;
+    border-radius: 15px;
+}
+
+#prizes::-webkit-scrollbar
+{
+    width: 10px;
+/*    background-color: #F5F5F5;*/
+    margin-right: 15px;
+}
+
+#prizes::-webkit-scrollbar-thumb
+{
+    background-color: #0ae;
+    
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,
+                       color-stop(.5, rgba(255, 255, 255, .2)),
+                       color-stop(.5, transparent), to(transparent));
+    border-radius: 10px;
+}
+
+#prizes div.title {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0.9em;
+}
+
+
+#prizesList {
+    padding: 0;
+    margin: 0;  
+    margin-top: 10px;
+}
+
+#prizesList table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#prizesList table tr td {
+    vertical-align: top;
+    text-align: left;
+}
+
+/*
+.prizesItem {
+    border-bottom: 1px solid white;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    height:100%;
+    width: 100%;
+    overflow: hidden;
+}*/
+
+.prizesImageDiv {
+	width: 20%;
+	margin-right: 4px;	
+}
+
+.prizesImage {
+    display: inline-block;
+    margin-top: 0px;
+	margin-left: 4px;
+	max-width: 128px;
+    margin-right: 10px;
+    text-align: left;
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+
+.prizesDescription {
+    font-size: 0.8em;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+
+.prizesDescription:hover, .prizesDescription::active {
+    color: #aaa;
+}
+
+.prizesLink:link, .prizesLink:visited, .prizesLink:hover, .prizesLink:active {
+    color: #ddd;
+    text-decoration: none;
+}
+
+
+
+
+
+
