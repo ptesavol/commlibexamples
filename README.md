@@ -1,7 +1,6 @@
 # commlibexamples
 Examples of using the Spaceify Communication Platform API
 
-
 You can use the Spaceify Communication Platform API in your code by adding the following
 script tag to your page:
 
@@ -9,6 +8,7 @@ script tag to your page:
 
 The API is used through the simple _GameClient_ class. 
 Below you can find the complete decription of the _GameClient_ class in WebIDL format.
+For better-formatted version see https://github.com/ptesavol/commlibexamples/blob/master/doc/commlib.webidl
 
 ## The Callbacks used in the interface of the GameClient class
 
@@ -32,7 +32,9 @@ callback ScreenConnectionTypeCallback = void (DOMString newConnectionType, DOMSt
 
 [Constructor]
 interface GameClient
+
 {
+
 // Connect method for Development
 
 void connect( DOMString host, DOMString port, DOMString clientType, DOMString groupId,  ConnectionReadyCallback callback );
