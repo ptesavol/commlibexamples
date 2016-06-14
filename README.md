@@ -4,7 +4,9 @@ Examples of using the Spaceify Communication Platform API
 You can use the Spaceify Communication Platform API in your code by adding the following
 script tag to your page:
 
+```html
 <script type="text/javascript" src="http://spaceify.net/games/g/gamelib.min.js"></script>
+```
 
 The API is used through the simple _GameClient_ class. 
 Below you can find the complete decription of the _GameClient_ class in WebIDL format.
