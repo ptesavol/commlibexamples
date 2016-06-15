@@ -27,10 +27,12 @@
 				{
 				gameClient = new GameClient(); 
 				gameClient.setScreenConnectionTypeListener(self, self.onScreenConnectionTypeUpdated);
+				gameClient.exposeRpcMethod("setColour", self, self.setColour);
 				
 				gameClient.setScreenConnectionListener(self, self.onScreenConnected);
 				//Development connection
 				gameClient.connect(SERVER_ADDRESS.host, SERVER_ADDRESS.port, "controller", GROUP_NAME, function(){});
+				
 				
 				//Production connection
 				//gameClient.connectAsController(function(){});	
@@ -56,6 +58,12 @@
 				console.log("RpcController::onScreenConnected() screenId: " + id);
 				screenId = id;
 				};
+				
+			self.setColour = function(colour)
+				{
+				console.log("RpcController::setColour() colour: " + colour);
+				};
+				
 			}
 		
 		var controller = null; 

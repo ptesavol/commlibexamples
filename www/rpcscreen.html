@@ -32,8 +32,16 @@
 				callback(null, "Hello from screen "+ buttonPressCounter);
 				};
 				
+			self.onControllerConnected = function(controllerId)
+				{
+				console.log("TestSreen::onControllerConnected "+controllerId);
+				gameClient.notifyController(controllerId, "setColour", ["1234"]);
+				};	
+				
 			self.connect = function()
 				{
+				gameClient.setControllerConnectionListener(self, self.onControllerConnected);
+				
 				gameClient.exposeRpcMethod( "onButtonPressed", self, self.onButtonPressed);			
 				
 				gameClient.connect(SERVER_ADDRESS.host, SERVER_ADDRESS.port, "screen", GROUP_NAME, function(){});
