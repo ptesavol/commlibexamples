@@ -1,0 +1,17 @@
+{
+  "name": "localhub",
+  "version": "0.0.2",
+  "description": "Localhub is part of the Upgrading Connectivity Framework of Spaceify Oy",
+  "main": "communicationhub.min.js",
+  "dependencies": {
+    "websocket": "^1.0.21",
+    "winston": "^1.0.1",
+    "minimist": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./loacalhub.sh"
+  },
+  "author": "Petri Savolainen",
+  "license": "Proprietary"
+}
