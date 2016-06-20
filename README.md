@@ -1,6 +1,7 @@
 # commlibexamples
 Examples of using the Spaceify Communication Platform API
 
+## Usage
 
 You can use the Spaceify Communication Platform API in your code by adding the following
 script tag to your page:
@@ -9,9 +10,13 @@ script tag to your page:
 <script type="text/javascript" src="http://spaceify.net/games/g/gamelib.min.js"></script>
 ```
 
-The API is used through the simple _GameClient_ class. 
+The API is used through the simple _GameClient_ class. The documentation of the GameClient class
+can be found in the directory "doc/api". You can browse the API docs online at 
+http://http://htmlpreview.github.io/?https://github.com/ptesavol/commlibexamples/blob/master/doc/api/interface_game_client.html
+
+
 The complete description of the _GameClient_ class is available in WebIDL format with comments at 
-https://github.com/ptesavol/commlibexamples/blob/master/doc/commlib.webidl
+https://github.com/ptesavol/commlibexamples/blob/master/doc/commlib.idl
 
 
 ## Analogue gamepad example
