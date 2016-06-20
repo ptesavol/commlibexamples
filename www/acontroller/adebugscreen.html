@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		
+		<script type="text/javascript" src="http://spaceify.net/games/g/gamelib.min.js"></script>
+		
+		<script type="text/javascript">	
+		
+		//Communication group name for development use without the Application Server
+				
+		var GROUP_NAME = "petridebuggi";
+		
+		var SERVER_ADDRESS = {host: "spaceify.net", port: 1979};
+		var WEBRTC_CONFIG = {"iceServers":[{url:"stun:kandela.tv"},{url :"turn:kandela.tv", username:"webrtcuser", credential:"jeejeejee"}]};
+				
+		function ADebugScreen()
+			{
+			var self = this;
+			
+			var gameClient = null; 
+			
+				
+			self.playerMove = function(coords, callerId, connectionId, callback)
+				{
+				console.log("ADebugSreen::playerMove() x: "+coords.x+" y: "+coords.y+" callerId: "+callerId+" connectionId: "+connectionId);
+				document.getElementById("stickX").innerHTML = coords.x;
+				document.getElementById("stickY").innerHTML = coords.y;
+				};
+			
+			self.playerShoot = function(callerId, connectionId, callback)
+				{
+				console.log("ADebugSreen::playerShoot() callerId: "+callerId+" connectionId: "+connectionId);
+				
+				document.getElementById("fire").innerHTML = "Fire";
+				};
+					
+			self.connect = function()
+				{
+				gameClient = new GameClient();
+				
+				gameClient.exposeRpcMethod( "playerMove", self, self.playerMove);			
+				gameClient.exposeRpcMethod( "playerShoot", self, self.playerShoot);	
+				
+				gameClient.connect(SERVER_ADDRESS.host, SERVER_ADDRESS.port, "screen", GROUP_NAME, function(){});
+				
+				// Connect for deployment
+				//gameClient.connectAsScreen("phaseroid", document.getElementById("url"), document.getElementById("qr"), function() {});	
+				};
+			}
+		
+		var screen = null;
+			
+		window.onload = function()
+			{
+			screen = new ADebugScreen();
+			screen.connect();
+			}
+				
+		</script>
+		<title>
+			TestScreen for Analog Thumbstick Controller of Spaceify Connectivity Framework
+		</title>
+	</head>
+<body>
+	<h2>
+		TestScreen for Analog Thumbstick Controller of Spaceify Connectivity Framework
+	</h2>
+	<h3>
+		Please open the browser console to see what is happening!
+	</h3>
+	<h3>
+		Thumbstick X: <span id="stickX"></span>
+		<br />
+		Thumbstick Y: <span id="stickY"></span>
+		<br />
+		Thubstick Fire: <span id="fire"></span>
+	</h3>
+	
+	<!-- Uncomment for deployment
+	<h3 id="url">
+		Here should appear the controller URL
+	</h3>
+	<img id="qr"></img>
+	-->
+	
+</body>
+</html>
