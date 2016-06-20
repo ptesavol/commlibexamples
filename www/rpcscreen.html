@@ -3,18 +3,13 @@
 	<head>
 		<meta charset="UTF-8">
 		
-		<script type="text/javascript" src="http://spaceify.net/games/g/gamelib.min.js"></script>
-		<script type="text/javascript">	
-			
-		//Group name for development use
-				
-		var GROUP_NAME = "petris_own_group";
+		<script type="text/javascript" src="config.js"></script>
 		
-		var SERVER_ADDRESS = {host: "spaceify.net", port: 1979};
-		var WEBRTC_CONFIG = {"iceServers":[{url:"stun:kandela.tv"},{url :"turn:kandela.tv", username:"webrtcuser", credential:"jeejeejee"}]};
-			
-			
-		function TestScreen()
+		<script type="text/javascript" src="http://spaceify.net/games/g/gamelib.min.js"></script>
+		
+		<script type="text/javascript">	
+				
+		function RpcScreen()
 			{
 			var self = this;
 			
@@ -26,7 +21,7 @@
 			self.onButtonPressed = function(x, y, callerId, connectionId, callback)
 				{
 				buttonPressCounter++;
-				console.log("TestSreen::onButtonPressed() x: "+x+" y: "+y+" callerId: "+callerId+" connectionId: "+connectionId);
+				console.log("RpcScreen::onButtonPressed() x: "+x+" y: "+y+" callerId: "+callerId+" connectionId: "+connectionId);
 				document.getElementById("message").innerHTML = "Button pressed "+buttonPressCounter;
 				
 				callback(null, "Hello from screen "+ buttonPressCounter);
@@ -34,7 +29,7 @@
 				
 			self.onControllerConnected = function(controllerId)
 				{
-				console.log("TestSreen::onControllerConnected "+controllerId);
+				console.log("RpcScreen::onControllerConnected "+controllerId);
 				gameClient.notifyController(controllerId, "setColour", ["1234"]);
 				};	
 				
@@ -51,7 +46,7 @@
 				};
 			}
 		
-		var screen = new TestScreen();
+		var screen = new RpcScreen();
 			
 		window.onload = function()
 			{
@@ -60,12 +55,12 @@
 				
 		</script>
 		<title>
-			TestScreen for communicationhub
+			RpcScreen Example
 		</title>
 	</head>
 <body>
 	<h2>
-		Screen for demonstrating an RPC call
+		RpcScreen for demonstrating an RPC call
 	</h2>
 	<h3>
 		Please open the browser console to see what is happening!
