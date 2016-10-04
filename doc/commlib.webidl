@@ -179,7 +179,7 @@ void notifyController( DOMString controllerId, DOMString methodName, any[] param
  *
  */
  
-void callClientRpc( DOMString clientId, methodName, any[] params, any thisParam, RPCMethodReturnCallback callback );
+void callClientRpc( DOMString clientId, DOMString methodName, any[] params, any thisParam, RPCMethodReturnCallback callback );
 
 
 
